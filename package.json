@@ -10,16 +10,18 @@
     "react"
   ],
   "scripts": {
-    "pretest": "npm run build:re",
-    "start": "concurrently --names \"JS,RE\" --prefix-colors \"black.bgYellow.bold,white.bgRed.bold\" --kill-others-on-fail \"npm run start:js\" \"npm run start:re\"",
     "build:js": "react-scripts build",
     "build:re": "bsb -make-world",
     "build": "npm run build:re && npm run build:js",
     "clean:re": "bsb -clean-world",
     "clean": "npm run clean:re",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
     "format": "prettier --write \"**/*.{js,json,md,yml}\" \"!**/*.bs.js\" && find ./src -regex '.*\\.re' -exec bsrefmt --in-place '{}' \\;",
+    "pretest": "npm run build:re",
     "start:js": "react-scripts start",
     "start:re": "npm run build:re -- -w",
+    "start": "concurrently --names \"JS,RE\" --prefix-colors \"black.bgYellow.bold,white.bgRed.bold\" --kill-others-on-fail \"npm run start:js\" \"npm run start:re\"",
     "test:ci": "CI=true npm test",
     "test:coverage": "CI=true npm test -- --coverage",
     "test": "react-scripts test"
@@ -46,6 +48,7 @@
     "bs-webapi": "^0.15.9",
     "concurrently": "^5.2.0",
     "coveralls": "^3.1.0",
+    "cypress": "^4.5.0",
     "jest-fetch-mock": "^3.0.3",
     "prettier": "^2.0.5",
     "react-scripts": "^3.4.1",
