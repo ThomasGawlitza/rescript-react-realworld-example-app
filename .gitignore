@@ -43,3 +43,7 @@ yarn-error.log*
 .merlin
 *.bs.js
 .bsb.lock
+
+# Cypress
+/cypress/screenshots
+/cypress/videos
